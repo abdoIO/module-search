@@ -1,0 +1,294 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  overflow-x: hidden;
+}
+
+a {
+  color: #008cba;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+.header {
+  background-color: #f6a623;
+  color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #008cba;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.header nav a {
+  margin: 0 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #fff;
+  padding: 20px;
+  width: 200px;
+  border-right: 1px solid #ddd;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  color: #008cba;
+  font-size: 14px;
+}
+
+/* Content Area */
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home-page {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.module-list {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.module-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.module-item:last-child {
+  border-bottom: none;
+}
+
+.module-item h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.module-item p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Search Bar */
+.search-bar {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-width: 250px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #008cba;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.search-bar button:hover {
+  background-color: #005f7f;
+}
+
+/* Pagination */
+.pagination {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.pagination button {
+  margin: 5px;
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #f6a623;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination .active {
+  background-color: #008cba;
+  color: #fff;
+}
+
+/* Footer */
+.footer {
+  background-color: #fff;
+  color: #666;
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+/* Module List */
+.module-list {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.module-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.module-item:last-child {
+  border-bottom: none;
+}
+
+.module-item h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.module-item p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.module-item a {
+  color: #008cba;
+}
+
+.module-item a:hover {
+  text-decoration: underline;
+}
+
+/* Contributors */
+.contributors {
+  margin-top: 15px;
+}
+
+.contributors h4 {
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.contributors ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contributors ul li {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sidebar {
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .main-content {
+    flex-direction: column;
+  }
+
+  .pagination {
+    display: flex;
+  }
+
+  .pagination button {
+    margin: 3px;
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .header nav a {
+    font-size: 12px;
+  }
+
+  .sidebar {
+    padding: 15px;
+  }
+
+  .sidebar ul li {
+    margin: 8px 0;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
+
+  .pagination button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
