@@ -17,7 +17,7 @@ describe('ModuleList', () => {
     render(<ModuleList modules={mockModules} />);
 
     const moduleNames = screen.getAllByText(/example-module/i);
-    expect(moduleNames).toHaveLength(2); // There should be 2 instances of "example-module"
+    expect(moduleNames).toHaveLength(2);
 
     const heading = screen.getByRole('heading', { name: /example-module/i });
     const link = screen.getByRole('link', {
