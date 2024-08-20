@@ -10,8 +10,9 @@ export const searchModules = async (query: string, page: number = 1) => {
       api_key: API_KEY,
       page: page,
       per_page: 5,
-      sort: 'stars'
-    }
+      sort: 'stars',
+    },
   });
+
   return response.data;
 };

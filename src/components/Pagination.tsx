@@ -6,7 +6,11 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+const Pagination: React.FC<PaginationProps> = ({
+  currentPage,
+  totalPages,
+  onPageChange,
+}) => {
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
@@ -16,6 +20,8 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
           key={page}
           className={page === currentPage ? 'active' : ''}
           onClick={() => onPageChange(page)}
+          aria-label={`Go to page ${page}`}
+          aria-current={page === currentPage ? 'page' : undefined}
         >
           {page}
         </button>

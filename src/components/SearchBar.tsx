@@ -19,8 +19,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+        aria-label="Search for modules"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch} aria-label="Search">
+        Search
+      </button>
     </div>
   );
 };

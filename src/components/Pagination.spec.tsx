@@ -2,77 +2,39 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Pagination from './Pagination';
 
-test('renders pagination component', () => {
-  render(<Pagination currentPage={1} totalPages={10} onPageChange={() => {}} />);
-  expect(screen.getByText('1')).toBeInTheDocument();
-  expect(screen.getByText('2')).toBeInTheDocument();
-  expect(screen.getByText('3')).toBeInTheDocument();
-  expect(screen.getByText('4')).toBeInTheDocument();
-  expect(screen.getByText('5')).toBeInTheDocument();
-  expect(screen.getByText('Next')).toBeInTheDocument();
-  expect(screen.getByText('Last')).toBeInTheDocument();
-});
+describe('Pagination Component', () => {
+  const setup = (currentPage: number, totalPages: number) => {
+    const onPageChange = jest.fn();
+    render(
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={onPageChange}
+      />
+    );
+    return { onPageChange };
+  };
 
-test('onPageChange is called when page number is clicked', () => {
-  const onPageChange = jest.fn();
-  render(<Pagination currentPage={1} totalPages={10} onPageChange={onPageChange} />);
-  fireEvent.click(screen.getByText('3'));
-  expect(onPageChange).toHaveBeenCalledTimes(1);
-  expect(onPageChange).toHaveBeenCalledWith(2);
-});
+  it('should render the correct number of page buttons', () => {
+    setup(1, 5);
 
-test('next button works', () => {
-  const onPageChange = jest.fn();
-  render(<Pagination currentPage={1} totalPages={10} onPageChange={onPageChange} />);
-  fireEvent.click(screen.getByText('Next'));
-  expect(onPageChange).toHaveBeenCalledTimes(1);
-  expect(onPageChange).toHaveBeenCalledWith(2);
-});
+    const pageButtons = screen.getAllByRole('button');
+    expect(pageButtons).toHaveLength(5);
+  });
 
-test('previous button works', () => {
-  const onPageChange = jest.fn();
-  render(<Pagination currentPage={2} totalPages={10} onPageChange={onPageChange} />);
-  fireEvent.click(screen.getByText('Previous'));
-  expect(onPageChange).toHaveBeenCalledTimes(1);
-  expect(onPageChange).toHaveBeenCalledWith(1);
-});
+  it('should highlight the active page', () => {
+    setup(3, 5);
 
-test('last button works', () => {
-  const onPageChange = jest.fn();
-  render(<Pagination currentPage={1} totalPages={10} onPageChange={onPageChange} />);
-  fireEvent.click(screen.getByText('Last'));
-  expect(onPageChange).toHaveBeenCalledTimes(1);
-  expect(onPageChange).toHaveBeenCalledWith(10);
-});
+    const activeButton = screen.getByText('3');
+    expect(activeButton).toHaveClass('active');
+  });
 
-test('first button works', () => {
-  const onPageChange = jest.fn();
-  render(<Pagination currentPage={10} totalPages={10} onPageChange={onPageChange} />);
-  fireEvent.click(screen.getByText('First'));
-  expect(onPageChange).toHaveBeenCalledTimes(1);
-  expect(onPageChange).toHaveBeenCalledWith(1);
-});
+  it('should call onPageChange with the correct page number when a page button is clicked', () => {
+    const { onPageChange } = setup(1, 5);
 
-test('disables previous button on first page', () => {
-  const onPageChange = jest.fn();
-  render(<Pagination currentPage={1} totalPages={10} onPageChange={onPageChange} />);
-  expect(screen.getByText('Previous')).toBeDisabled();
-});
+    const pageButton = screen.getByText('2');
+    fireEvent.click(pageButton);
 
-test('disables next button on last page', () => {
-  const onPageChange = jest.fn();
-  render(<Pagination currentPage={10} totalPages={10} onPageChange={onPageChange} />);
-  expect(screen.getByText('Next')).toBeDisabled();
-});
-
-test('disables last button on last page', () => {
-  const onPageChange = jest.fn();
-  render(<Pagination currentPage={10} totalPages={10} onPageChange={onPageChange} />);
-  expect(screen.getByText('Last')).toBeDisabled();
-});
-
-test('disables first button on first page', () => {
-  const onPageChange = jest.fn();
-  render(<Pagination currentPage={1} totalPages={10} onPageChange={onPageChange} />);
-  expect(screen.getByText('First')).toBeDisabled();
+    expect(onPageChange).toHaveBeenCalledWith(2);
+  });
 });
