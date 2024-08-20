@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# Module Search App
+
+## What have been done in this project:
+
+- Built a React application with a clear, modular structure using components like HomePage, SearchBar, ModuleList, and Pagination.
+- Used TypeScript to define interfaces (e.g., Module) and ensure type safety across the application.
+- Implemented API communication with Libraries.io to fetch module data, using axios for HTTP requests.
+- Added error handling and loading states to improve user experience during API calls.
+- Created comprehensive unit tests covering scenarios like successful data fetch, handling errors, and pagination.
+- Added aria-label to inputs and buttons to improve screen reader compatibility.
+- Developed a responsive layout using CSS media queries to ensure the application works on different screen sizes.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -6,7 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,12 +24,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `yarn run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,7 +39,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `yarn run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
